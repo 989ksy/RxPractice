@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */; };
 		0FECC78E2AF0E4F200A114DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECC78D2AF0E4F200A114DB /* AppDelegate.swift */; };
 		0FECC7902AF0E4F200A114DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECC78F2AF0E4F200A114DB /* SceneDelegate.swift */; };
 		0FECC7922AF0E4F200A114DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECC7912AF0E4F200A114DB /* ViewController.swift */; };
@@ -19,9 +20,11 @@
 		0FECC7BF2AF0EE0C00A114DB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0FECC7BE2AF0EE0C00A114DB /* RxCocoa */; };
 		0FECC7C12AF0EE0C00A114DB /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0FECC7C02AF0EE0C00A114DB /* RxCocoa-Dynamic */; };
 		0FECC7C32AF0EE0C00A114DB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0FECC7C22AF0EE0C00A114DB /* RxRelay */; };
+		0FECC7C62AF1117100A114DB /* SimpleTableViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FECC7C52AF1117100A114DB /* SimpleTableViewExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0FECC78A2AF0E4F200A114DB /* SwiftRxPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRxPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FECC78D2AF0E4F200A114DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FECC78F2AF0E4F200A114DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +34,7 @@
 		0FECC7992AF0E4F300A114DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FECC79B2AF0E4F300A114DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FECC7B62AF0ECDD00A114DB /* SimplePickerViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerViewExampleViewController.swift; sourceTree = "<group>"; };
+		0FECC7C52AF1117100A114DB /* SimpleTableViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		0FECC78C2AF0E4F200A114DB /* SwiftRxPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0FECC7C42AF1112F00A114DB /* Table */,
 				0FECC7B82AF0ECE500A114DB /* Picker */,
 				0FECC78D2AF0E4F200A114DB /* AppDelegate.swift */,
 				0FECC78F2AF0E4F200A114DB /* SceneDelegate.swift */,
@@ -86,6 +91,15 @@
 				0FECC7B62AF0ECDD00A114DB /* SimplePickerViewExampleViewController.swift */,
 			);
 			path = Picker;
+			sourceTree = "<group>";
+		};
+		0FECC7C42AF1112F00A114DB /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				0FECC7C52AF1117100A114DB /* SimpleTableViewExampleViewController.swift */,
+				0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +185,10 @@
 			files = (
 				0FECC7B72AF0ECDD00A114DB /* SimplePickerViewExampleViewController.swift in Sources */,
 				0FECC7922AF0E4F200A114DB /* ViewController.swift in Sources */,
+				0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */,
 				0FECC78E2AF0E4F200A114DB /* AppDelegate.swift in Sources */,
 				0FECC7902AF0E4F200A114DB /* SceneDelegate.swift in Sources */,
+				0FECC7C62AF1117100A114DB /* SimpleTableViewExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
