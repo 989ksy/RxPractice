@@ -10,6 +10,15 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+class newViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
+    
+}
+
 class ShoppingListViewController: UIViewController {
     
     let searchbar = {
@@ -70,8 +79,16 @@ class ShoppingListViewController: UIViewController {
                 cell.checkImage.tintColor = .black
                 cell.favoriteIamge.tintColor = .black
                 cell.backgroundColor = .systemGray6
+                
             }
+            .disposed(by: disposeBag)
         
+        Observable.zip(tableview.rx.itemSelected, tableview.rx.modelSelected(String.self))
+            .subscribe(with: self) { owner, value in
+                let vc = newViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
         
         
     }
