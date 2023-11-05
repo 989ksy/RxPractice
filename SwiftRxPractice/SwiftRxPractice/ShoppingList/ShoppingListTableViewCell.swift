@@ -28,14 +28,14 @@ final class ShoppingListTableViewCell : UITableViewCell {
         return button
     }()
     
-    let favoriteIamge = {
+    let favoriteButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "star"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         return button
     }()
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,11 +47,16 @@ final class ShoppingListTableViewCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     private func configure() {
         
         contentView.addSubview(checkButton)
         contentView.addSubview(listLabel)
-        contentView.addSubview(favoriteIamge)
+        contentView.addSubview(favoriteButton)
         
         checkButton.snp.makeConstraints { make in
             make.leading.equalTo(20)
@@ -61,9 +66,9 @@ final class ShoppingListTableViewCell : UITableViewCell {
         listLabel.snp.makeConstraints { make in
             make.leading.equalTo(checkButton.snp.trailing).offset(15)
             make.centerY.equalTo(checkButton)
-            make.trailing.equalTo(favoriteIamge.snp.leading).offset(-15)
+            make.trailing.equalTo(favoriteButton.snp.leading).offset(-15)
         }
-        favoriteIamge.snp.makeConstraints { make in
+        favoriteButton.snp.makeConstraints { make in
             make.centerY.equalTo(listLabel)
             make.trailing.equalToSuperview().inset(20)
             make.size.equalTo(30)

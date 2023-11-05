@@ -10,7 +10,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class newViewController: UIViewController {
+class TransitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,6 @@ class ShoppingListViewController: UIViewController {
         view.searchTextField.borderStyle = .none
         return view
     }()
-    
     let addButton = {
         let view = UIButton()
         view.setTitle("추가", for: .normal)
@@ -43,7 +42,6 @@ class ShoppingListViewController: UIViewController {
         view.setTitleColor(.black, for: .normal)
         return view
     }()
-    
     let tableview = {
         let view = UITableView()
         view.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: ShoppingListTableViewCell.identifier)
@@ -52,11 +50,9 @@ class ShoppingListViewController: UIViewController {
         return view
     }()
     
-    var data = ["그립톡 구매하기", "사이다 구매하기", "아이패드 케이스 최저가 알아보기", "양말"]
-    
-    lazy var items = BehaviorSubject(value: data)
-    
     let disposeBag = DisposeBag()
+    
+    let viewModel = ShoppingListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,22 +68,44 @@ class ShoppingListViewController: UIViewController {
     
     func bind() {
         
-        items
+        viewModel.items
             .bind(to: tableview.rx.items(cellIdentifier: ShoppingListTableViewCell.identifier, cellType: ShoppingListTableViewCell.self)) {
                 (row, element, cell) in
                 
                 cell.listLabel.text = element
                 cell.checkButton.tintColor = .black
-                cell.favoriteIamge.tintColor = .black
+                cell.favoriteButton.tintColor = .black
                 cell.backgroundColor = .systemGray6
+                cell.checkButton.rx.tap
+                    .subscribe(with: self) { owner, value in
+                        cell.checkButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                    }
+                    .disposed(by: cell.disposeBag)
+            
+                cell.favoriteButton.rx.tap
+                    .subscribe(with: self) { owner, value in
+                        cell.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                    }
+                    .disposed(by: cell.disposeBag)
                 
             }
             .disposed(by: disposeBag)
         
         Observable.zip(tableview.rx.itemSelected, tableview.rx.modelSelected(String.self))
             .subscribe(with: self) { owner, value in
-                let vc = newViewController()
+                let vc = TransitionViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        searchbar.rx.text.orEmpty
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, value in
+                let result = value == "" ? owner.viewModel.data : owner.viewModel.data.filter{ $0.contains(value)}
+                owner.viewModel.items.onNext(result)
+                
+                print("===== 검색: \(value)")
             }
             .disposed(by: disposeBag)
         
