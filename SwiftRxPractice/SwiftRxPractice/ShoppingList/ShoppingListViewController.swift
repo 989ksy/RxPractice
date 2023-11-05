@@ -51,8 +51,9 @@ class ShoppingListViewController: UIViewController {
     }()
     
     let disposeBag = DisposeBag()
-    
     let viewModel = ShoppingListViewModel()
+    
+    let addButtonIstapped = BehaviorSubject(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +96,14 @@ class ShoppingListViewController: UIViewController {
             .subscribe(with: self) { owner, value in
                 let vc = TransitionViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        addButton.rx.tap
+            .withLatestFrom(searchbar.rx.text.orEmpty) { void, text in return text }
+            .subscribe(with: self) { owner, text in
+                owner.viewModel.data.insert(text, at: 0)
+                owner.viewModel.items.onNext(owner.viewModel.data)
             }
             .disposed(by: disposeBag)
         
