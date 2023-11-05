@@ -58,7 +58,7 @@ final class ShoppingListTableViewCell : UITableViewCell {
         disposeBag = DisposeBag()
     }
     
-    func configureCell (with item: ShoppingItem) {
+    func configureCell (item: ShoppingItem) {
         listLabel.text = item.title
         checkButton.tintColor = .black
         favoriteButton.tintColor = .black

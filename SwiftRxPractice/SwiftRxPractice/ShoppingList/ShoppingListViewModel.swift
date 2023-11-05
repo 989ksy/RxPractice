@@ -17,5 +17,12 @@ class ShoppingListViewModel {
 
     let disposeBag = DisposeBag()
     
+    init() {
+        
+        
+        
+        
+        
+    }
     
 }

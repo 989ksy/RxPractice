@@ -100,7 +100,7 @@ class ShoppingListViewController: UIViewController {
         viewModel.items
             .bind(to: tableview.rx.items(cellIdentifier: ShoppingListTableViewCell.identifier, cellType: ShoppingListTableViewCell.self)) {
                 (row, element, cell) in
-                cell.configureCell(with: element)
+                cell.configureCell(item: element)
                 cell.backgroundColor = .systemGray6
                 cell.checkButton.rx.tap
                     .subscribe(with: self) { owner, _ in
@@ -155,12 +155,12 @@ class ShoppingListViewController: UIViewController {
         searchbar.rx.text.orEmpty
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .subscribe(with: self) { owner, value in
+            .subscribe(with: self) { owner, text in
                 
-                let result = value == "" ? owner.viewModel.data : owner.viewModel.data.filter{ $0.title.contains(value)}
+                let result = text == "" ? owner.viewModel.data : owner.viewModel.data.filter{ $0.title.contains(text)}
                 owner.viewModel.items.onNext(result)
                 
-                print("===== 검색: \(value)")
+                print("===== 검색: \(text)")
             }
             .disposed(by: disposeBag)
         
