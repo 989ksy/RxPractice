@@ -11,11 +11,9 @@ import RxCocoa
 
 class ShoppingListViewModel {
     
-    var data = ["그립톡 구매하기", "사이다 구매하기", "아이패드 케이스 최저가 알아보기", "양말"]
-    lazy var items = BehaviorSubject(value: data)
+    var data : [ShoppingItem] = [ShoppingItem(title: "그립톡 구매하기", isFavorite: false, isChecked: false), ShoppingItem(title: "사이다 구매하기", isFavorite: false, isChecked: false),ShoppingItem(title: "아이패드 케이스 최저가 알아보기", isFavorite: false, isChecked: false), ShoppingItem(title: "양말", isFavorite: false, isChecked: false) ]
     
-    let favoriteButtonState = BehaviorRelay<Bool>(value: false)
-    let checkButtonState = BehaviorRelay<Bool>(value:false)
+    lazy var items = BehaviorSubject(value: data)
 
     let disposeBag = DisposeBag()
     

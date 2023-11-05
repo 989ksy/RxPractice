@@ -12,10 +12,38 @@ import RxCocoa
 
 class TransitionViewController: UIViewController {
     
+    let listTextfield = {
+        let view = UITextField()
+        view.backgroundColor = .systemGray6
+        view.borderStyle = .roundedRect
+        view.placeholder = "수정하실 내용을 입력하세요."
+        return view
+    }()
+    
+    var completionHandler : ((String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "화면전환 \(Int.random(in: 1...100))"
+        title = "수정하기"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정하기", style: .done, target: self, action: #selector(editButtonTapped))
+        
+        configure()
+    }
+    
+    @objc func editButtonTapped() {
+        
+        completionHandler?(listTextfield.text ?? "")
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func configure() {
+        view.addSubview(listTextfield)
+        listTextfield.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(20)
+        }
     }
     
 }
@@ -72,33 +100,37 @@ class ShoppingListViewController: UIViewController {
         viewModel.items
             .bind(to: tableview.rx.items(cellIdentifier: ShoppingListTableViewCell.identifier, cellType: ShoppingListTableViewCell.self)) {
                 (row, element, cell) in
-                cell.listLabel.text = element
-                cell.checkButton.tintColor = .black
-                cell.favoriteButton.tintColor = .black
+                cell.configureCell(with: element)
                 cell.backgroundColor = .systemGray6
                 cell.checkButton.rx.tap
-                    .subscribe(with: self) { owner, value in
-                        let ischecked = owner.viewModel.checkButtonState.value
-                        let updatedState = ischecked ? "checkmark.square" : "checkmark.square.fill"
-                        cell.checkButton.setImage(UIImage(systemName: updatedState), for: .normal)
-                        owner.viewModel.checkButtonState.accept(!ischecked)
+                    .subscribe(with: self) { owner, _ in
+                        var item = owner.viewModel.data[row]
+                        item.isChecked = !item.isChecked
+                        owner.viewModel.data[row] = item
+                        owner.viewModel.items.onNext(owner.viewModel.data)
                     }
                     .disposed(by: cell.disposeBag)
-            
+
                 cell.favoriteButton.rx.tap
-                    .subscribe(with: self) { owner, value in
-                        let isFavorite = owner.viewModel.favoriteButtonState.value
-                        let updatedState = isFavorite ? "star" : "star.fill"
-                        cell.favoriteButton.setImage(UIImage(systemName: updatedState), for: .normal)
-                        owner.viewModel.favoriteButtonState.accept(!isFavorite)
+                    .subscribe(with: self) { owner, _ in
+                        var item = owner.viewModel.data[row]
+                        item.isFavorite = !item.isFavorite
+                        owner.viewModel.data[row] = item
+                        owner.viewModel.items.onNext(owner.viewModel.data)
                     }
                     .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
         
-        Observable.zip(tableview.rx.itemSelected, tableview.rx.modelSelected(String.self))
-            .subscribe(with: self) { owner, value in
+        tableview.rx.itemSelected
+            .subscribe(with: self) { owner, indexPath in
+                print(indexPath)
                 let vc = TransitionViewController()
+                vc.completionHandler = { text in
+                    owner.viewModel.data[indexPath.row].title = text
+                owner.viewModel.items.onNext(owner.viewModel.data)
+                }
+                
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
@@ -114,7 +146,8 @@ class ShoppingListViewController: UIViewController {
         addButton.rx.tap
             .withLatestFrom(searchbar.rx.text.orEmpty) { void, text in return text }
             .subscribe(with: self) { owner, text in
-                owner.viewModel.data.insert(text, at: 0)
+                let newItem = ShoppingItem(title: text, isFavorite: false, isChecked: false)
+                owner.viewModel.data.insert(newItem, at: 0)
                 owner.viewModel.items.onNext(owner.viewModel.data)
             }
             .disposed(by: disposeBag)
@@ -123,7 +156,8 @@ class ShoppingListViewController: UIViewController {
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(with: self) { owner, value in
-                let result = value == "" ? owner.viewModel.data : owner.viewModel.data.filter{ $0.contains(value)}
+                
+                let result = value == "" ? owner.viewModel.data : owner.viewModel.data.filter{ $0.title.contains(value)}
                 owner.viewModel.items.onNext(result)
                 
                 print("===== 검색: \(value)")

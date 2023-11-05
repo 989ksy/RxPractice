@@ -10,6 +10,12 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+struct ShoppingItem {
+    var title: String
+    var isFavorite: Bool
+    var isChecked: Bool
+}
+
 final class ShoppingListTableViewCell : UITableViewCell {
     
     static let identifier = "ShoppingListTableViewCell"
@@ -50,6 +56,14 @@ final class ShoppingListTableViewCell : UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+    }
+    
+    func configureCell (with item: ShoppingItem) {
+        listLabel.text = item.title
+        checkButton.tintColor = .black
+        favoriteButton.tintColor = .black
+        checkButton.setImage(UIImage(systemName: item.isChecked ? "checkmark.square.fill" : "checkmark.square"), for: .normal)
+        favoriteButton.setImage(UIImage(systemName: item.isFavorite ? "star.fill" : "star"), for: .normal)
     }
     
     private func configure() {
