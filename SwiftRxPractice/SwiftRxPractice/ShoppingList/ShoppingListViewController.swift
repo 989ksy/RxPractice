@@ -72,7 +72,6 @@ class ShoppingListViewController: UIViewController {
         viewModel.items
             .bind(to: tableview.rx.items(cellIdentifier: ShoppingListTableViewCell.identifier, cellType: ShoppingListTableViewCell.self)) {
                 (row, element, cell) in
-                
                 cell.listLabel.text = element
                 cell.checkButton.tintColor = .black
                 cell.favoriteButton.tintColor = .black
@@ -85,10 +84,12 @@ class ShoppingListViewController: UIViewController {
             
                 cell.favoriteButton.rx.tap
                     .subscribe(with: self) { owner, value in
-                        cell.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                        let isFavorite = owner.viewModel.favoriteButtonState.value
+                        let updatedState = isFavorite ? "star" : "star.fill"
+                        cell.favoriteButton.setImage(UIImage(systemName: updatedState), for: .normal)
+                        owner.viewModel.favoriteButtonState.accept(!isFavorite)
                     }
                     .disposed(by: cell.disposeBag)
-                
             }
             .disposed(by: disposeBag)
         
@@ -97,6 +98,14 @@ class ShoppingListViewController: UIViewController {
                 let vc = TransitionViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            .disposed(by: disposeBag)
+        
+        tableview.rx.itemDeleted
+            .subscribe(with: self, onNext: { owner, indexPath in
+                let row = indexPath.row
+                owner.viewModel.data.remove(at: row)
+                owner.viewModel.items.onNext(owner.viewModel.data)
+            })
             .disposed(by: disposeBag)
         
         addButton.rx.tap
@@ -151,3 +160,4 @@ class ShoppingListViewController: UIViewController {
     
     
 }
+

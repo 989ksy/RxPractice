@@ -15,6 +15,9 @@ class ShoppingListViewModel {
     lazy var items = BehaviorSubject(value: data)
     let disposeBag = DisposeBag()
     
+    let favoriteButtonState = BehaviorRelay<Bool>(value: false)
+
+
     
     
 }
