@@ -21,20 +21,18 @@ final class ShoppingListTableViewCell : UITableViewCell {
         return label
     }()
     
-    let checkImage = {
-        let checkImage = UIImageView()
-        checkImage.image = UIImage(systemName: "checkmark.square")?.withTintColor(.black)
-        checkImage.contentMode = .scaleAspectFit
-        checkImage.clipsToBounds = true
-        return checkImage
+    let checkButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
     }()
     
     let favoriteIamge = {
-        let favoriteIamge = UIImageView()
-        favoriteIamge.image = UIImage(systemName: "star")?.withTintColor(.black)
-        favoriteIamge.contentMode = .scaleAspectFit
-        favoriteIamge.clipsToBounds = true
-        return favoriteIamge
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
+        return button
     }()
     
     let disposeBag = DisposeBag()
@@ -51,18 +49,18 @@ final class ShoppingListTableViewCell : UITableViewCell {
     
     private func configure() {
         
-        contentView.addSubview(checkImage)
+        contentView.addSubview(checkButton)
         contentView.addSubview(listLabel)
         contentView.addSubview(favoriteIamge)
         
-        checkImage.snp.makeConstraints { make in
+        checkButton.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.centerY.equalToSuperview()
             make.size.equalTo(30)
         }
         listLabel.snp.makeConstraints { make in
-            make.leading.equalTo(checkImage.snp.trailing).offset(15)
-            make.centerY.equalTo(checkImage)
+            make.leading.equalTo(checkButton.snp.trailing).offset(15)
+            make.centerY.equalTo(checkButton)
             make.trailing.equalTo(favoriteIamge.snp.leading).offset(-15)
         }
         favoriteIamge.snp.makeConstraints { make in

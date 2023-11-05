@@ -15,6 +15,7 @@ class newViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        title = "화면전환 \(Int.random(in: 1...100))"
     }
     
 }
@@ -76,7 +77,7 @@ class ShoppingListViewController: UIViewController {
                 (row, element, cell) in
                 
                 cell.listLabel.text = element
-                cell.checkImage.tintColor = .black
+                cell.checkButton.tintColor = .black
                 cell.favoriteIamge.tintColor = .black
                 cell.backgroundColor = .systemGray6
                 
