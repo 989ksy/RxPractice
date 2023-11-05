@@ -78,7 +78,10 @@ class ShoppingListViewController: UIViewController {
                 cell.backgroundColor = .systemGray6
                 cell.checkButton.rx.tap
                     .subscribe(with: self) { owner, value in
-                        cell.checkButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                        let ischecked = owner.viewModel.checkButtonState.value
+                        let updatedState = ischecked ? "checkmark.square" : "checkmark.square.fill"
+                        cell.checkButton.setImage(UIImage(systemName: updatedState), for: .normal)
+                        owner.viewModel.checkButtonState.accept(!ischecked)
                     }
                     .disposed(by: cell.disposeBag)
             
