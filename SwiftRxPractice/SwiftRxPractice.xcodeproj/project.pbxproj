@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F4B029F2B0238AE00C3E02D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */; };
+		0F4B02A12B023C8600C3E02D /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */; };
+		0F4B02A42B023D1200C3E02D /* LoginValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */; };
 		0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */; };
 		0F7EFF6A2AF4D31800DBA90B /* NumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */; };
 		0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationViewController.swift; sourceTree = "<group>"; };
 		0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbViewController.swift; sourceTree = "<group>"; };
 		0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
@@ -73,8 +77,17 @@
 			isa = PBXGroup;
 			children = (
 				0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */,
+				0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		0F4B02A22B023CF800C3E02D /* LoginValidation */ = {
+			isa = PBXGroup;
+			children = (
+				0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */,
+			);
+			path = LoginValidation;
 			sourceTree = "<group>";
 		};
 		0F7EFF682AF4D28200DBA90B /* Numbers */ = {
@@ -122,6 +135,7 @@
 		0FECC78C2AF0E4F200A114DB /* SwiftRxPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0F4B02A22B023CF800C3E02D /* LoginValidation */,
 				0F4B029D2B02389D00C3E02D /* Weather */,
 				0F7EFF742AF5032500DBA90B /* ShoppingList */,
 				0F7EFF6C2AF4E0E900DBA90B /* Validation */,
@@ -241,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FECC7B72AF0ECDD00A114DB /* SimplePickerViewExampleViewController.swift in Sources */,
+				0F4B02A42B023D1200C3E02D /* LoginValidationViewController.swift in Sources */,
+				0F4B02A12B023C8600C3E02D /* WeatherAPI.swift in Sources */,
 				0F7EFF7B2AF6353D00DBA90B /* ShoppingListTableViewCell.swift in Sources */,
 				0FECC7922AF0E4F200A114DB /* ViewController.swift in Sources */,
 				0F7EFF762AF5033A00DBA90B /* ShoppingListViewController.swift in Sources */,
