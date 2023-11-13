@@ -4,63 +4,62 @@
 //
 //  Created by Seungyeon Kim on 11/13/23.
 //
-
 import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
 
 class LoginValidationViewController : UIViewController {
-    
+
     let disposeBag = DisposeBag()
-    
+    let viewModel = LoginValidationViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+
         configure()
         bind()
-        
+
     }
-    
-    
-    
+
+
+
     //MARK: - bind
     
     func bind() {
         
-        let login = loginTextfield.rx.text.orEmpty
-        let password = passwordTextfield.rx.text.orEmpty
+        let input = LoginValidationViewModel.Input(login: loginTextfield.rx.text.orEmpty, password: passwordTextfield.rx.text.orEmpty, tap: nextButton.rx.tap)
         
-        let validation = Observable.combineLatest(login, password) { login, password in
+        let output = viewModel.transform(input: input)
+
+        let validation = Observable.combineLatest(input.login, input.password) { login, password in
             return login.count >= 6 && password.count >= 8
         }
-        
+
         validation
             .bind(to: nextButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
+
         validation
             .subscribe(with: self) { owner, value in
-                let color = UIColor.green
-                owner.nextButton.backgroundColor = value ? color : UIColor.red
+                owner.nextButton.backgroundColor = value ? UIColor.green : UIColor.red
                 owner.loginTextfield.backgroundColor = value ? UIColor.white : UIColor.gray
                 owner.passwordTextfield.backgroundColor = value ? UIColor.white : UIColor.gray
             }
             .disposed(by: disposeBag)
-        
-        nextButton.rx.tap
+
+        output.tap
             .subscribe(with: self) { owner, value in
                 print("tapped")
             }
             .disposed(by: disposeBag)
-        
-        
-        
-        
-        
+
+
+
+
+
     }
-    
     
     
     //MARK: - Configure UI

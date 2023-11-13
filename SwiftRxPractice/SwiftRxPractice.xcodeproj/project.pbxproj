@@ -10,6 +10,7 @@
 		0F4B029F2B0238AE00C3E02D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */; };
 		0F4B02A12B023C8600C3E02D /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */; };
 		0F4B02A42B023D1200C3E02D /* LoginValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */; };
+		0F4B02A62B026FA200C3E02D /* LoginValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A52B026FA200C3E02D /* LoginValidationViewModel.swift */; };
 		0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */; };
 		0F7EFF6A2AF4D31800DBA90B /* NumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */; };
 		0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */; };
@@ -37,6 +38,7 @@
 		0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationViewController.swift; sourceTree = "<group>"; };
+		0F4B02A52B026FA200C3E02D /* LoginValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationViewModel.swift; sourceTree = "<group>"; };
 		0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbViewController.swift; sourceTree = "<group>"; };
 		0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */,
+				0F4B02A52B026FA200C3E02D /* LoginValidationViewModel.swift */,
 			);
 			path = LoginValidation;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				0F4B029F2B0238AE00C3E02D /* WeatherViewController.swift in Sources */,
 				0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */,
 				0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */,
+				0F4B02A62B026FA200C3E02D /* LoginValidationViewModel.swift in Sources */,
 				0FECC78E2AF0E4F200A114DB /* AppDelegate.swift in Sources */,
 				0FECC7902AF0E4F200A114DB /* SceneDelegate.swift in Sources */,
 				0F7EFF702AF500D600DBA90B /* PickerViewModel.swift in Sources */,
