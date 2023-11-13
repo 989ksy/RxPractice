@@ -17,6 +17,7 @@ final class SimplePickerViewExampleViewController: ViewController {
     @IBOutlet var pickerView3: UIPickerView!
     
     let disposeBag = DisposeBag()
+    let viewModel = PickerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

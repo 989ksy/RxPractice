@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4B029F2B0238AE00C3E02D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */; };
 		0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */; };
 		0F7EFF6A2AF4D31800DBA90B /* NumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */; };
 		0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbViewController.swift; sourceTree = "<group>"; };
 		0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4B029D2B02389D00C3E02D /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				0F4B029E2B0238AE00C3E02D /* WeatherViewController.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		0F7EFF682AF4D28200DBA90B /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		0FECC78C2AF0E4F200A114DB /* SwiftRxPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0F4B029D2B02389D00C3E02D /* Weather */,
 				0F7EFF742AF5032500DBA90B /* ShoppingList */,
 				0F7EFF6C2AF4E0E900DBA90B /* Validation */,
 				0F7EFF682AF4D28200DBA90B /* Numbers */,
@@ -233,6 +244,7 @@
 				0F7EFF7B2AF6353D00DBA90B /* ShoppingListTableViewCell.swift in Sources */,
 				0FECC7922AF0E4F200A114DB /* ViewController.swift in Sources */,
 				0F7EFF762AF5033A00DBA90B /* ShoppingListViewController.swift in Sources */,
+				0F4B029F2B0238AE00C3E02D /* WeatherViewController.swift in Sources */,
 				0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */,
 				0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */,
 				0FECC78E2AF0E4F200A114DB /* AppDelegate.swift in Sources */,

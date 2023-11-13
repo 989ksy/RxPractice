@@ -33,7 +33,6 @@ class TransitionViewController: UIViewController {
     }
     
     @objc func editButtonTapped() {
-        
         completionHandler?(listTextfield.text ?? "")
         navigationController?.popViewController(animated: true)
     }
