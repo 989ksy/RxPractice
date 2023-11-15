@@ -11,6 +11,8 @@
 		0F4B02A12B023C8600C3E02D /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */; };
 		0F4B02A42B023D1200C3E02D /* LoginValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */; };
 		0F4B02A62B026FA200C3E02D /* LoginValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B02A52B026FA200C3E02D /* LoginValidationViewModel.swift */; };
+		0F67C9052B052C0F005C4598 /* IdValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F67C9042B052C0F005C4598 /* IdValidationViewController.swift */; };
+		0F67C9082B052C51005C4598 /* IdValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F67C9072B052C51005C4598 /* IdValidationViewModel.swift */; };
 		0F7EFF672AF4CE3900DBA90B /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */; };
 		0F7EFF6A2AF4D31800DBA90B /* NumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */; };
 		0F7EFF6E2AF4E0F900DBA90B /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */; };
@@ -39,6 +41,8 @@
 		0F4B02A02B023C8600C3E02D /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		0F4B02A32B023D1200C3E02D /* LoginValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationViewController.swift; sourceTree = "<group>"; };
 		0F4B02A52B026FA200C3E02D /* LoginValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationViewModel.swift; sourceTree = "<group>"; };
+		0F67C9042B052C0F005C4598 /* IdValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdValidationViewController.swift; sourceTree = "<group>"; };
+		0F67C9072B052C51005C4598 /* IdValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdValidationViewModel.swift; sourceTree = "<group>"; };
 		0F7EFF662AF4CE3900DBA90B /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		0F7EFF692AF4D31800DBA90B /* NumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbViewController.swift; sourceTree = "<group>"; };
 		0F7EFF6D2AF4E0F900DBA90B /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,15 @@
 			path = LoginValidation;
 			sourceTree = "<group>";
 		};
+		0F67C9062B052C13005C4598 /* IdValidation */ = {
+			isa = PBXGroup;
+			children = (
+				0F67C9042B052C0F005C4598 /* IdValidationViewController.swift */,
+				0F67C9072B052C51005C4598 /* IdValidationViewModel.swift */,
+			);
+			path = IdValidation;
+			sourceTree = "<group>";
+		};
 		0F7EFF682AF4D28200DBA90B /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,7 @@
 		0FECC78C2AF0E4F200A114DB /* SwiftRxPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0F67C9062B052C13005C4598 /* IdValidation */,
 				0F4B02A22B023CF800C3E02D /* LoginValidation */,
 				0F4B029D2B02389D00C3E02D /* Weather */,
 				0F7EFF742AF5032500DBA90B /* ShoppingList */,
@@ -259,6 +273,7 @@
 			files = (
 				0FECC7B72AF0ECDD00A114DB /* SimplePickerViewExampleViewController.swift in Sources */,
 				0F4B02A42B023D1200C3E02D /* LoginValidationViewController.swift in Sources */,
+				0F67C9082B052C51005C4598 /* IdValidationViewModel.swift in Sources */,
 				0F4B02A12B023C8600C3E02D /* WeatherAPI.swift in Sources */,
 				0F7EFF7B2AF6353D00DBA90B /* ShoppingListTableViewCell.swift in Sources */,
 				0FECC7922AF0E4F200A114DB /* ViewController.swift in Sources */,
@@ -273,6 +288,7 @@
 				0FECC7C62AF1117100A114DB /* SimpleTableViewExampleViewController.swift in Sources */,
 				0F7EFF7D2AF7620700DBA90B /* ShoppingListViewModel.swift in Sources */,
 				0F7EFF6A2AF4D31800DBA90B /* NumbViewController.swift in Sources */,
+				0F67C9052B052C0F005C4598 /* IdValidationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
